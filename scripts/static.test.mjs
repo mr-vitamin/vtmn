@@ -246,7 +246,7 @@ test("every exported page shares the approved footer destinations and Amazon pla
         ["GitHub", "Discord", "Amazon · soon", "LinkedIn", "Email"],
         file,
       );
-      const links = [...footer.querySelectorAll("a")];
+      const links = [...footer.querySelector("ul").querySelectorAll("a")];
       assert.equal(links.length, 4, file);
       for (const [index, [label, href]] of destinations.entries()) {
         const link = links[index];

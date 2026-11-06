@@ -1,0 +1,5 @@
+# Static Pages responses, including direct visits to Archive entries.
+# Keep existing inline scripts/styles and Cloudflare-injected scripts working.
+/*
+  X-Frame-Options: DENY
+  Content-Security-Policy: base-uri 'self'; object-src 'none'; frame-ancestors 'none'

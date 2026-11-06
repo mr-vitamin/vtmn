@@ -33,7 +33,7 @@ describe("Shared footer destinations", () => {
       "LinkedIn",
       "Email",
     ]);
-    expect(screen.getAllByRole("link")).toHaveLength(4);
+    expect(screen.getAllByRole("link")).toHaveLength(5);
     expect(within(items[2]!).queryByRole("link")).not.toBeInTheDocument();
     expect(items[2]).toHaveAttribute("title", "Link coming soon");
     expect(items[2]).not.toHaveAttribute("tabindex");
@@ -47,5 +47,14 @@ describe("Shared footer destinations", () => {
       expect(link).toHaveFocus();
       expect(link).not.toHaveAttribute("aria-disabled");
     }
+  });
+
+  it("provides a keyboard-accessible privacy notice in the same tab", () => {
+    render(<SiteFooter />);
+    const link = screen.getByRole("link", { name: "Privacy" });
+    expect(link).toHaveAttribute("href", "/privacy");
+    expect(link).not.toHaveAttribute("target");
+    link.focus();
+    expect(link).toHaveFocus();
   });
 });

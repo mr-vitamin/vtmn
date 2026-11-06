@@ -75,6 +75,13 @@ export function SiteFooter() {
         <ExtLinks className="justify-center font-normal" />
         <p className="mt-6 text-center text-xs font-normal text-muted-foreground">
           © {new Date().getFullYear()} {site.name}
+          <span aria-hidden="true"> · </span>
+          <a
+            href="/privacy"
+            className="underline underline-offset-4 hover:text-accent-glow focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+          >
+            Privacy
+          </a>
         </p>
       </div>
     </footer>
