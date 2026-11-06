@@ -1,0 +1,333 @@
+/* Archive-only exhibition system. All colors use existing semantic tokens. */
+.vtmn-archive {
+  padding-block: 7rem 5rem;
+}
+
+.vtmn-archive-introduction {
+  padding-bottom: 2.5rem;
+}
+
+.vtmn-archive-introduction h1 {
+  margin: 0.75rem 0 0;
+}
+
+.vtmn-archive-description {
+  max-width: 45ch;
+  margin: 1.25rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.vtmn-archive-group {
+  margin-top: 3rem;
+}
+
+.vtmn-archive-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.vtmn-archive-section-heading h2 {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.25;
+}
+
+.vtmn-archive-count {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.vtmn-archive-section-rail {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.vtmn-archive-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 1.5rem;
+}
+
+.vtmn-project-card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  outline: 2px solid transparent;
+  outline-offset: 4px;
+}
+
+.vtmn-project-shell {
+  --vtmn-card-cut: 1rem;
+  --vtmn-card-inner-cut: calc(var(--vtmn-card-cut) - 0.5857864376px);
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  background: var(--border);
+  clip-path: polygon(
+    var(--vtmn-card-cut) 0,
+    100% 0,
+    100% calc(100% - var(--vtmn-card-cut)),
+    calc(100% - var(--vtmn-card-cut)) 100%,
+    0 100%,
+    0 var(--vtmn-card-cut)
+  );
+  transition: background-color 240ms ease;
+}
+
+.vtmn-project-shell::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(145deg, var(--card), var(--background) 85%);
+  clip-path: polygon(
+    var(--vtmn-card-inner-cut) 0,
+    100% 0,
+    100% calc(100% - var(--vtmn-card-inner-cut)),
+    calc(100% - var(--vtmn-card-inner-cut)) 100%,
+    0 100%,
+    0 var(--vtmn-card-inner-cut)
+  );
+}
+
+.vtmn-project-artwork,
+.vtmn-project-content {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.vtmn-project-artwork {
+  aspect-ratio: 16 / 10;
+  margin: 0.75rem 0.75rem 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--background);
+}
+
+.vtmn-project-artwork img,
+.vtmn-project-placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.vtmn-project-placeholder {
+  fill: none;
+  stroke: var(--muted-foreground);
+  stroke-width: 1;
+}
+
+.vtmn-artwork-register {
+  stroke: var(--border);
+  opacity: 0.7;
+}
+
+.vtmn-artwork-object {
+  opacity: 0.8;
+  transition: transform 240ms ease;
+}
+
+.vtmn-artwork-base {
+  fill: var(--card);
+}
+
+.vtmn-artwork-edge {
+  stroke: var(--border);
+}
+
+.vtmn-artwork-inset {
+  fill: var(--background);
+}
+
+.vtmn-project-placeholder[data-variant="1"] .vtmn-artwork-inset {
+  transform: translateX(12px);
+}
+
+.vtmn-project-placeholder[data-variant="2"] .vtmn-artwork-inset {
+  transform: translateX(-12px);
+}
+
+.vtmn-artwork-accent {
+  stroke: var(--primary);
+  stroke-width: 2;
+}
+
+.vtmn-project-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+.vtmn-project-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.vtmn-project-category {
+  color: var(--muted-foreground);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.vtmn-project-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  flex-shrink: 0;
+  color: var(--accent-glow);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+}
+
+.vtmn-project-status > span {
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.vtmn-project-status[data-status="released"] {
+  color: var(--muted-foreground);
+}
+
+.vtmn-project-content h3 {
+  min-block-size: 2.8em;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.vtmn-project-description {
+  min-block-size: 4.95em;
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  line-height: 1.65;
+  overflow-wrap: break-word;
+}
+
+.vtmn-project-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.vtmn-project-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--foreground);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.vtmn-project-footer-space {
+  /* Retain the approved footer footprint after removing temporary messaging. */
+  inline-size: 9rem;
+  block-size: 1.03125rem;
+}
+
+.vtmn-project-card .vtmn-project-trigger,
+.vtmn-project-card .vtmn-project-trigger:hover {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.vtmn-project-card:focus-within {
+  outline-color: var(--ring);
+}
+
+.vtmn-project-card:focus-within .vtmn-project-shell {
+  background: var(--primary);
+}
+
+.vtmn-archive-empty {
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+}
+
+.vtmn-archive-empty p {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.vtmn-archive-empty p + p {
+  margin-top: 0.5rem;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+@media (min-width: 40rem) {
+  .vtmn-archive {
+    padding-block: 8rem 6rem;
+  }
+
+  .vtmn-archive-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .vtmn-archive-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .vtmn-project-card:hover .vtmn-project-shell {
+    background: var(--primary);
+  }
+
+  .vtmn-project-card:hover .vtmn-artwork-object {
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vtmn-project-shell,
+  .vtmn-artwork-object {
+    transition: none;
+  }
+
+  .vtmn-project-card:hover .vtmn-artwork-object {
+    transform: none;
+  }
+}

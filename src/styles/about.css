@@ -1,0 +1,273 @@
+/* About-only layout; both panels share one physical, unscaled corner geometry. */
+.vtmn-about {
+  padding-block: 7rem 5rem;
+}
+
+.vtmn-about-introduction {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+}
+
+.vtmn-about-introduction > *,
+.vtmn-about-panel > * {
+  min-width: 0;
+}
+
+.vtmn-about-title,
+.vtmn-about-secondary-title {
+  margin: 0;
+  color: var(--foreground);
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.vtmn-about-title {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  line-height: 1.2;
+}
+
+.vtmn-about-biography {
+  grid-template-columns: minmax(0, 1fr);
+  align-self: start;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.vtmn-about-portrait {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 26rem);
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+}
+
+.vtmn-about-portrait-window {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  aspect-ratio: 1327 / 1185;
+  background: var(--background);
+}
+
+.vtmn-about-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 40% 50%;
+}
+
+.vtmn-about-copy {
+  max-width: 68ch;
+  color: var(--muted-foreground);
+  font-size: clamp(1rem, 1.2vw, 1.0625rem);
+  font-weight: 400;
+  line-height: 1.85;
+  overflow-wrap: break-word;
+}
+
+.vtmn-about-copy p {
+  margin: 0;
+}
+
+.vtmn-about-copy p + p {
+  margin-top: 1.5rem;
+}
+
+.vtmn-about em {
+  font-style: italic;
+  font-synthesis: style;
+}
+
+.vtmn-about-biography-copy > p:first-child {
+  color: var(--foreground);
+}
+
+.vtmn-about-panel {
+  --vtmn-panel-cut: 1rem;
+  --vtmn-panel-border: 1px;
+  /* Parallel 1px diagonal inset: inner cut = outer cut - (2 - sqrt(2)) * border. */
+  --vtmn-panel-inner-cut: calc(var(--vtmn-panel-cut) - 0.5857864376 * var(--vtmn-panel-border));
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  background: var(--border);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--vtmn-panel-cut)) 0,
+    100% var(--vtmn-panel-cut),
+    100% 100%,
+    var(--vtmn-panel-cut) 100%,
+    0 calc(100% - var(--vtmn-panel-cut))
+  );
+}
+
+.vtmn-about-panel::before {
+  content: "";
+  position: absolute;
+  inset: var(--vtmn-panel-border);
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    color-mix(in oklab, var(--card) 65%, var(--background)),
+    var(--background) 80%
+  );
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--vtmn-panel-inner-cut)) 0,
+    100% var(--vtmn-panel-inner-cut),
+    100% 100%,
+    var(--vtmn-panel-inner-cut) 100%,
+    0 calc(100% - var(--vtmn-panel-inner-cut))
+  );
+}
+
+.vtmn-about-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.vtmn-about-brand {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.75rem;
+  margin-top: 4rem;
+  padding: 2rem 1.5rem;
+}
+
+.vtmn-about-secondary-title {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.2;
+}
+
+.vtmn-about-brand-lead p {
+  max-width: 30ch;
+  margin: 1.5rem 0 0;
+  color: var(--foreground);
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.vtmn-about-motto {
+  margin-top: 4rem;
+}
+
+.vtmn-about-motto-panel {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 2rem 1.5rem;
+}
+
+.vtmn-about-translation {
+  margin: 0.875rem 0 0;
+  color: var(--foreground);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.vtmn-about-philosophy {
+  margin: 0;
+}
+
+.vtmn-about-philosophy-lead {
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 40rem) {
+  .vtmn-about {
+    padding-block: 8rem 6rem;
+  }
+
+  .vtmn-about-introduction {
+    gap: 2.5rem;
+  }
+
+  .vtmn-about-biography {
+    padding: 2rem;
+  }
+
+  .vtmn-about-brand {
+    gap: 2rem;
+    margin-top: 5rem;
+    padding: 3rem;
+  }
+
+  .vtmn-about-panel {
+    --vtmn-panel-cut: 2rem;
+  }
+
+  .vtmn-about-motto {
+    margin-top: 5rem;
+  }
+
+  .vtmn-about-motto-panel {
+    padding: 3rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .vtmn-about-introduction {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: stretch;
+    column-gap: 3.5rem;
+    row-gap: 2.5rem;
+  }
+
+  .vtmn-about-portrait {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    padding: 1rem;
+  }
+
+  .vtmn-about-portrait-window {
+    flex: 1;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+
+  .vtmn-about-photo {
+    position: absolute;
+    inset: 0;
+    object-fit: contain;
+  }
+
+  .vtmn-about-biography {
+    align-self: stretch;
+    align-content: start;
+    gap: 1.25rem;
+    padding-block: 1.5rem;
+  }
+
+  .vtmn-about-brand {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+    align-items: start;
+    column-gap: 4rem;
+    margin-top: 5.5rem;
+    padding: 3.5rem;
+  }
+
+  .vtmn-about-brand-copy,
+  .vtmn-about-philosophy {
+    padding-inline-start: 2rem;
+    border-inline-start: 1px solid var(--border);
+  }
+
+  .vtmn-about-motto {
+    margin-top: 5.5rem;
+  }
+
+  .vtmn-about-motto-panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    column-gap: 3rem;
+    padding: 3.5rem;
+  }
+}

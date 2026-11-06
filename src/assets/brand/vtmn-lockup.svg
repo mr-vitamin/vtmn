@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 600" width="1800" height="600" role="img" aria-label="VTMN logo — Esse Quam Videri">
+  <title>VTMN — Esse Quam Videri — Horizontal Lockup</title>
+  <defs>
+    <linearGradient id="purple-streak" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#9A36FF;stop-opacity:0"/>
+      <stop offset="25%" style="stop-color:#9A36FF;stop-opacity:.55"/>
+      <stop offset="53%" style="stop-color:#F5C7FF;stop-opacity:1"/>
+      <stop offset="74%" style="stop-color:#A335FF;stop-opacity:.8"/>
+      <stop offset="100%" style="stop-color:#7D24FE;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="purple-glow" x="-100%" y="-500%" width="300%" height="1100%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+    <linearGradient id="divider-shine" x1="0%" x2="0%" y1="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E7E4F3;stop-opacity:0"/>
+      <stop offset="20%" style="stop-color:#E7E4F3;stop-opacity:.28"/>
+      <stop offset="50%" style="stop-color:#E7E4F3;stop-opacity:.9"/>
+      <stop offset="80%" style="stop-color:#E7E4F3;stop-opacity:.28"/>
+      <stop offset="100%" style="stop-color:#E7E4F3;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+  <rect id="presentation-background" x="0" y="0" width="1800" height="600" fill="#050509"/>
+  <g id="VTMN_Symbol" transform="translate(138 133) scale(0.5307)"><polygon id="symbol-Left_Upper" data-name="Left Upper" points="1.20669,0.90865 207.02033,66.3948 294.55795,293.59168 149.55288,223.42794" fill="#FFFFFF"/>
+    <polygon id="symbol-Left_Inner" data-name="Left Inner" points="261.00362,147.25016 338.51785,187.34373 383.95723,286.24119 371.92916,331.68057 306.443,298.34838" fill="#FFFFFF"/>
+    <polygon id="symbol-Left_Lower" data-name="Left Lower" points="180.74005,257.66034 364.50223,352.54845 325.74512,466.81511" fill="#FFFFFF"/>
+    <polygon id="symbol-Right_Upper" data-name="Right Upper" points="831.67682,0.90865 625.86318,66.3948 538.32556,293.59168 683.33063,223.42794" fill="#FFFFFF"/>
+    <polygon id="symbol-Right_Inner" data-name="Right Inner" points="571.87989,147.25016 494.36566,187.34373 448.92628,286.24119 460.95435,331.68057 526.44051,298.34838" fill="#FFFFFF"/>
+    <polygon id="symbol-Right_Lower" data-name="Right Lower" points="652.14346,257.66034 468.38128,352.54845 507.13839,466.81511" fill="#FFFFFF"/>
+    <polygon id="symbol-Center_Diamond" data-name="Center Diamond" points="417.1099,272.74898 348.28261,467.20277 417.1099,611.53961 484.60073,467.20277" fill="#FFFFFF"/>
+  </g>
+  <rect id="divider" x="620" y="151" width="3" height="298" fill="url(#divider-shine)"/>
+  <g id="VTMN_Wordmark" transform="translate(668 235) scale(0.526)"><g id="wordmark-V">
+    <polygon id="wordmark-V_Left_Upper" data-name="V Left Upper" points="12,13.96802 94.22948,13.96802 143.11412,81.39893 59.44854,75.21906" fill="#FFFFFF"/>
+    <polygon id="wordmark-V_Center" data-name="V Center" points="358.48885,87.98206 246.48479,232.56744 181.33949,232.56744 69.33547,87.98206 152.33087,94.11237 213.91216,179.05688 275.49343,94.11237" fill="#FFFFFF"/>
+    <polygon id="wordmark-V_Right_Upper" data-name="V Right Upper" points="333.59484,13.96802 415.8243,13.96802 368.37575,75.21906 284.71019,81.39893" fill="#FFFFFF"/>
+  </g>
+  <g id="wordmark-T">
+    <polygon id="wordmark-T_Main" data-name="T Main" points="487.8243,12.36859 834.17607,12.36859 794.09056,55.17157 701.61363,55.20642 662.40642,39.68726 623.41521,55.50763 528.18724,55.50763" fill="#FFFFFF"/>
+    <polygon id="wordmark-T_Stem" data-name="T Stem" points="662.46166,52.61499 693.48192,64.89355 693.48192,230.96802 630.31792,230.96802 630.31792,65.65704" fill="#FFFFFF"/>
+  </g>
+  <g id="wordmark-M">
+    <polygon id="wordmark-M_Left_Stem" data-name="M Left Stem" points="935.17607,75.53284 994.85143,109.70483 994.85143,230.60492 935.17607,230.60492" fill="#FFFFFF"/>
+    <polygon id="wordmark-M_Chevron" data-name="M Chevron" points="1310.38872,12 1310.38872,61.13086 1122.29009,168.85199 935.17607,61.70465 935.17607,12.27722 1122.72502,120.98114" fill="#FFFFFF"/>
+    <polygon id="wordmark-M_Right_Stem" data-name="M Right Stem" points="1310.38872,74.95935 1310.38872,230.84741 1249.43071,230.84741 1249.43071,109.86902" fill="#FFFFFF"/>
+  </g>
+  <g id="wordmark-N">
+    <polygon id="wordmark-N_Left_Stem" data-name="N Left Stem" points="1471.38872,45.25922 1533.30474,85.94257 1533.30474,230.67383 1471.38872,230.21967" fill="#FFFFFF"/>
+    <polygon id="wordmark-N_Diagonal" data-name="N Diagonal" points="1471.38872,12.66693 1532.50286,12.66693 1836.99004,205.49664 1836.99004,230.96802 1775.87151,230.96802 1471.38872,30.90057" fill="#FFFFFF"/>
+    <polygon id="wordmark-N_Right_Stem" data-name="N Right Stem" points="1774.32952,12.36859 1836.99004,12.36859 1836.99004,191.29272 1774.32952,151.61023" fill="#FFFFFF"/>
+  </g>
+</g>
+  <text id="Latin_Motto" x="1161" y="420" fill="#F6F5FA" font-family="Inter, Lato, sans-serif" font-size="27" font-weight="300" letter-spacing="11" text-anchor="middle">ESSE QUAM VIDERI</text>
+  <rect id="left-purple-glow" x="707" y="405" width="100" height="6" fill="url(#purple-streak)" filter="url(#purple-glow)"/>
+  <rect id="left-purple-accent" x="707" y="407" width="100" height="2" fill="url(#purple-streak)"/>
+  <rect id="right-purple-glow" x="1538" y="405" width="114" height="6" fill="url(#purple-streak)" filter="url(#purple-glow)"/>
+  <rect id="right-purple-accent" x="1538" y="407" width="114" height="2" fill="url(#purple-streak)"/>
+</svg>

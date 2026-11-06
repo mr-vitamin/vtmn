@@ -1,0 +1,74 @@
+/* Production entry shell only. All artwork remains in the approved scene. */
+.vtmn-electric-boot {
+  display: none;
+}
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .vtmn-electric-boot {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    background: var(--electric-genesis-background);
+  }
+}
+.vtmn-electric-entrance {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  overflow: hidden;
+}
+.vtmn-electric-entrance .vt-intro {
+  --background: var(--electric-genesis-background);
+  --primary: var(--electric-genesis-accent);
+  transition:
+    opacity 1.2s cubic-bezier(0.7, 0, 0.3, 1),
+    filter 1.2s ease;
+}
+.vtmn-electric-entrance .vt-intro-out {
+  opacity: 0;
+  filter: none;
+  pointer-events: none;
+}
+.vtmn-electric-entrance .vt-intro-out::after {
+  content: "";
+  position: absolute;
+  inset: 3%;
+  pointer-events: none;
+  border: 1px solid var(--primary);
+  opacity: 0;
+  animation: vt-edge-discharge 1.2s ease-out;
+}
+@keyframes vt-edge-discharge {
+  0% {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  18% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.07);
+  }
+}
+.vtmn-electric-skip {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 30;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+@media (prefers-reduced-motion: reduce) {
+  .vtmn-electric-entrance .vt-intro,
+  .vtmn-electric-entrance .vt-intro-out::after {
+    animation: none;
+    transition: none;
+  }
+}
+
+.vtmn-electric-loading {
+  position: fixed;
+  inset: 0;
+  background: var(--electric-genesis-background);
+}

@@ -1,0 +1,75 @@
+/* Static, local corner networks. No full border, panels, imagery, or motion. */
+.vtmn-architectural-frame {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.vtmn-frame-corner {
+  position: absolute;
+  width: 256px;
+  height: 128px;
+  color: var(--border);
+}
+.vtmn-frame-top-left {
+  top: 0;
+  left: 0;
+}
+.vtmn-frame-top-right {
+  top: 0;
+  right: 0;
+  transform: scaleX(-1);
+}
+.vtmn-frame-bottom-left {
+  bottom: 0;
+  left: 0;
+  transform: scaleY(-1);
+}
+.vtmn-frame-bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: scale(-1);
+}
+.vtmn-frame-anchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-top: 1px solid currentColor;
+  border-left: 1px solid currentColor;
+}
+.vtmn-frame-network {
+  display: none;
+  overflow: visible;
+}
+.vtmn-frame-network path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-linecap: butt;
+  stroke-linejoin: miter;
+  vector-effect: non-scaling-stroke;
+}
+.vtmn-frame-secondary {
+  display: none;
+  opacity: 0.4;
+}
+.vtmn-frame-network .vtmn-frame-accent {
+  stroke: var(--primary);
+  stroke-width: 1.25;
+  opacity: 0.65;
+}
+@media (min-width: 640px) {
+  .vtmn-frame-anchor {
+    width: 32px;
+    height: 32px;
+  }
+  .vtmn-frame-network {
+    display: block;
+  }
+}
+@media (min-width: 1024px) {
+  .vtmn-frame-secondary {
+    display: block;
+  }
+}

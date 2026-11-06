@@ -1,0 +1,187 @@
+/* Cinematic ident: real-time filaments + SVG formation, isolated from page styles. */
+.vtmn-entrance {
+  --intro-exit: 0;
+  --intro-aperture: 0%;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  min-height: 100svh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  isolation: isolate;
+  background: var(--background);
+  color: var(--foreground);
+}
+#vtmn-content:target + .vtmn-entrance {
+  display: none;
+}
+
+.vtmn-cinematic-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+/* Keep transient orbital strokes out of the completed composition. */
+.vtmn-entrance[data-phase="ready"] .vtmn-cinematic-canvas {
+  opacity: 0;
+}
+.vtmn-cinematic-afterlight {
+  position: absolute;
+  inset: 8%;
+  pointer-events: none;
+  opacity: var(--intro-light, 0);
+  transform: scale(calc(1 + var(--intro-exit) * 4));
+}
+.vtmn-cinematic-afterlight::before,
+.vtmn-cinematic-afterlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: opacity 600ms ease;
+}
+/* The original light remains unchanged throughout formation and reveal. */
+.vtmn-cinematic-afterlight::before {
+  background: radial-gradient(ellipse at 50% 48%, var(--primary), transparent 62%);
+  opacity: 1;
+}
+/* Broad falloff and a softer silver-purple center replace any resting orbit. */
+.vtmn-cinematic-afterlight::after {
+  background:
+    radial-gradient(
+      ellipse 50% 22% at 52% var(--intro-halo-y, 48%),
+      color-mix(in oklab, var(--accent-glow) 55%, transparent),
+      transparent 88%
+    ),
+    radial-gradient(
+      ellipse 62% 45% at 46% var(--intro-halo-y, 48%),
+      color-mix(in oklab, var(--primary) 70%, transparent),
+      transparent 85%
+    );
+  opacity: 0;
+}
+.vtmn-entrance[data-scene="settled"] .vtmn-cinematic-afterlight::before {
+  opacity: 0;
+}
+.vtmn-entrance[data-scene="settled"] .vtmn-cinematic-afterlight::after {
+  opacity: 1;
+}
+.vtmn-cinematic-stage {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  width: min(90vw, 1140px);
+  transform: translate(-50%, -50%)
+    translate3d(var(--intro-cursor-x, 0px), var(--intro-cursor-y, 0px), 0)
+    scale(calc(1 + var(--intro-exit) * 0.45));
+  pointer-events: none;
+}
+.vtmn-cinematic-wordmark {
+  display: block;
+  width: 100%;
+  overflow: visible;
+  transform: skewX(var(--intro-shear, 0deg));
+  transform-origin: 50% 50%;
+  color: var(--foreground);
+  filter: blur(calc(var(--intro-exit) * 5px))
+    drop-shadow(0 0 calc(var(--intro-bloom, 0) * 20px) var(--accent-glow));
+}
+.vtmn-cinematic-contact-outline {
+  fill: none;
+  stroke: var(--accent-glow);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.vtmn-entrance-skip {
+  position: absolute;
+  z-index: 3;
+  top: max(1.25rem, env(safe-area-inset-top));
+  right: max(1.25rem, env(safe-area-inset-right));
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+}
+.vtmn-entrance-skip:hover {
+  color: var(--foreground);
+}
+.vtmn-entrance-enter {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: max(13svh, 3rem);
+  transform: translateX(-50%);
+  height: 3.25rem;
+  gap: 2rem;
+  padding-inline: 2rem;
+  border-radius: 999px;
+  border-color: color-mix(in oklab, var(--accent-glow) 45%, var(--border));
+  background: color-mix(in oklab, var(--card) 70%, transparent);
+  color: var(--foreground);
+  animation: vtmn-control-arrive 280ms ease-out both;
+}
+
+.vtmn-entrance[data-phase="leaving"] {
+  opacity: calc(1 - var(--intro-exit));
+}
+@supports (mask-image: radial-gradient(black, transparent)) {
+  .vtmn-entrance[data-phase="leaving"] {
+    opacity: 1;
+    mask-image: radial-gradient(
+      ellipse farthest-corner at 50% 48%,
+      transparent var(--intro-aperture),
+      black calc(var(--intro-aperture) + 12%)
+    );
+  }
+}
+.vtmn-entrance[data-phase="leaving"] .vtmn-entrance-enter {
+  visibility: hidden;
+}
+.vtmn-entrance[data-fallback="true"][data-phase="leaving"] {
+  mask-image: none;
+  animation: vtmn-fallback-exit 600ms ease both;
+}
+@keyframes vtmn-fallback-exit {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes vtmn-control-arrive {
+  from {
+    opacity: 0;
+    translate: 0 8px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@media (max-height: 480px) {
+  .vtmn-cinematic-afterlight {
+    --intro-halo-y: 42%;
+  }
+  .vtmn-cinematic-stage {
+    width: min(68vw, 95vh);
+    top: 43%;
+  }
+  .vtmn-entrance-enter {
+    bottom: 1.25rem;
+    height: 2.75rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vtmn-cinematic-afterlight::before,
+  .vtmn-cinematic-afterlight::after,
+  .vtmn-entrance *,
+  .vtmn-entrance {
+    animation: none !important;
+    transition: none !important;
+  }
+  .vtmn-cinematic-stage {
+    transform: translate(-50%, -50%);
+  }
+}

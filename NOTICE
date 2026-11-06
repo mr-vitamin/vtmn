@@ -1,0 +1,23 @@
+VTMN
+Copyright 2026 Alexander Ceran
+
+Original VTMN software code that Alexander Ceran has rights to license is
+licensed under the Apache License, Version 2.0. See LICENSE.
+Other original contributors retain their applicable copyrights.
+Development and third-party attribution are recorded in PROVENANCE.md.
+
+Original VTMN branding and artwork are separately reserved under BRANDING.md.
+This notice grants no additional artwork redistribution or deployment rights.
+
+Third-party software, fonts, and other materials retain their own licenses.
+They are not relicensed by this notice or the root LICENSE.
+
+Inter font software:
+Copyright 2020 The Inter Project Authors (https://github.com/rsms/inter)
+Licensed under the SIL Open Font License, Version 1.1.
+Unchanged notices: src/assets/brand/Inter-OFL.txt and public/fonts/Inter-OFL.txt.
+
+Legacy Syne-derived outlines retain their Google Fonts attribution in
+src/lib/wordmark-geometry.ts. See PROVENANCE.md. No Syne binary is bundled.
+
+This NOTICE is informational and does not modify Apache License 2.0.

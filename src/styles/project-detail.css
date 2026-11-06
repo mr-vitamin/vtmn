@@ -1,0 +1,274 @@
+/* Exhibit-specific composition. All interface colors use the shared theme. */
+.vtmn-exhibit {
+  padding-block: 7rem 5rem;
+}
+
+.vtmn-exhibit .vtmn-exhibit-return {
+  justify-content: flex-start;
+  height: auto;
+  padding: 0.5rem 0;
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  text-decoration: none;
+}
+
+.vtmn-exhibit .vtmn-exhibit-return:hover {
+  color: var(--foreground);
+}
+
+.vtmn-exhibit-hero {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.vtmn-exhibit-identity {
+  min-width: 0;
+}
+
+.vtmn-exhibit-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  color: var(--muted-foreground);
+}
+
+.vtmn-exhibit-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-glow);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.vtmn-exhibit-status > span {
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.vtmn-exhibit-status[data-status="released"] {
+  color: var(--muted-foreground);
+}
+
+.vtmn-exhibit-hero h1 {
+  max-width: 15ch;
+  margin: 1.5rem 0 0;
+  color: var(--foreground);
+  font-family: var(--font-display);
+  font-size: clamp(2.125rem, 4.5vw, 3.75rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.vtmn-exhibit-artwork {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  max-width: 32rem;
+  justify-self: center;
+  padding: 1rem;
+  background: radial-gradient(ellipse at 70% 55%, var(--card), var(--background) 72%);
+}
+
+.vtmn-exhibit-artwork::before,
+.vtmn-exhibit-artwork::after {
+  position: absolute;
+  width: 20%;
+  height: 2.5rem;
+  pointer-events: none;
+  content: "";
+}
+
+.vtmn-exhibit-artwork::before {
+  inset: 0 auto auto 0;
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+.vtmn-exhibit-artwork::after {
+  inset: auto 0 0 auto;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--primary);
+}
+
+.vtmn-exhibit-artwork > img,
+.vtmn-exhibit-artwork > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+}
+
+.vtmn-exhibit-overview {
+  margin-top: 2rem;
+}
+
+/* Exact neutral panel geometry and surface treatment from the About motto. */
+.vtmn-exhibit-overview-panel {
+  --vtmn-panel-cut: 1rem;
+  --vtmn-panel-border: 1px;
+  --vtmn-panel-inner-cut: calc(var(--vtmn-panel-cut) - 0.5857864376 * var(--vtmn-panel-border));
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 2rem 1.5rem;
+  background: var(--border);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--vtmn-panel-cut)) 0,
+    100% var(--vtmn-panel-cut),
+    100% 100%,
+    var(--vtmn-panel-cut) 100%,
+    0 calc(100% - var(--vtmn-panel-cut))
+  );
+}
+
+.vtmn-exhibit-overview-panel::before {
+  content: "";
+  position: absolute;
+  inset: var(--vtmn-panel-border);
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    color-mix(in oklab, var(--card) 65%, var(--background)),
+    var(--background) 80%
+  );
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--vtmn-panel-inner-cut)) 0,
+    100% var(--vtmn-panel-inner-cut),
+    100% 100%,
+    var(--vtmn-panel-inner-cut) 100%,
+    0 calc(100% - var(--vtmn-panel-inner-cut))
+  );
+}
+
+.vtmn-exhibit-overview-panel > * {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.vtmn-exhibit-overview h2 {
+  margin: 0;
+  color: var(--foreground);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.vtmn-exhibit-reading {
+  min-width: 0;
+}
+
+.vtmn-exhibit-lead {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: clamp(1rem, 1.2vw, 1.0625rem);
+  font-weight: 400;
+  line-height: 1.85;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+.vtmn-exhibit-copy {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 68ch;
+}
+
+.vtmn-exhibit-copy em {
+  font-style: italic;
+  font-synthesis: style;
+}
+
+.vtmn-exhibit-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.vtmn-exhibit .vtmn-exhibit-external {
+  min-height: 2.75rem;
+  height: auto;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.vtmn-exhibit a:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 5px;
+}
+
+.vtmn-exhibit-missing {
+  min-height: 70svh;
+}
+
+.vtmn-exhibit-missing h1 {
+  margin-top: 1.5rem;
+}
+
+.vtmn-exhibit-missing > p:not(.vtmn-label) {
+  margin-block: 1.5rem 2rem;
+  color: var(--muted-foreground);
+  line-height: 1.75;
+}
+
+@media (min-width: 40rem) {
+  .vtmn-exhibit {
+    padding-block: 8rem 6rem;
+  }
+
+  .vtmn-exhibit-overview-panel {
+    --vtmn-panel-cut: 2rem;
+    padding: 3rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .vtmn-exhibit-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  .vtmn-exhibit-artwork {
+    max-width: 28rem;
+    justify-self: end;
+    padding: 1.5rem;
+  }
+
+  .vtmn-exhibit-overview {
+    margin-top: 2.5rem;
+  }
+
+  .vtmn-exhibit-overview-panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    column-gap: 3rem;
+    padding: 3.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vtmn-exhibit a {
+    transition: none;
+  }
+}
