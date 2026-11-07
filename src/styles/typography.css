@@ -56,6 +56,24 @@
 .vtmn-home-hero {
   min-height: clamp(40rem, 88svh, 64rem);
 }
+@media (max-width: 639px) {
+  .vtmn-home-hero {
+    min-height: min(34rem, 84svh);
+  }
+  .vtmn-home-hero > div {
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+  }
+  .vtmn-home-hero .vtmn-label {
+    /* The official lockup already contains the motto. */
+    display: none;
+  }
+  .vtmn-home-hero .vtmn-label + div {
+    margin-top: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .vtmn-brand-lockup { display: block; width: 100%; max-width: 72rem; height: auto; }
 .vtmn-home-statement {
   font-family: var(--font-sans);
