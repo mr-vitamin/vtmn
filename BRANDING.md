@@ -8,7 +8,7 @@ The original portrait, atmospheric background, VTMN symbol, wordmark, and origin
 
 | Identity or artwork | Exact repository locations |
 | --- | --- |
-| VTMN name, official symbol, wordmark and lockup artwork | `src/assets/brand/vtmn-symbol.svg`, `src/assets/brand/vtmn-wordmark.svg`, `src/assets/brand/vtmn-lockup.svg` |
+| VTMN name, official symbol, wordmark and lockup artwork | `src/assets/brand/vtmn-symbol.svg`, `src/assets/brand/vtmn-wordmark.svg`, `src/assets/brand/vtmn-lockup.svg`, `public/vtmn-social-preview.png` |
 | Website lockup derivative | Original VTMN artwork in `src/assets/brand/vtmn-lockup-web.svg`; the embedded third-party Inter font is governed separately below. |
 | Favicon designs and their raster/vector representations | `public/favicon.svg`, `public/favicon-16.png`, `public/favicon-32.png`, `public/favicon.ico` |
 | Original portrait | `src/assets/alexander-ceran-portrait.jpg` |
