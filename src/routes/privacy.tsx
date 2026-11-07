@@ -4,7 +4,7 @@ const description = "How VTMN handles website delivery, analytics and voluntary 
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({
-    meta: [{ title: "Privacy — VTMN" }, { name: "description", content: description }],
+    meta: [{ title: "Privacy Policy — VTMN" }, { name: "description", content: description }],
     links: [{ rel: "canonical", href: "/privacy" }],
   }),
   component: PrivacyNotice,
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/privacy")({
 function PrivacyNotice() {
   return (
     <article className="mx-auto max-w-3xl px-5 pb-20 pt-28 text-foreground">
-      <h1 className="vtmn-page-title">Privacy notice</h1>
+      <h1 className="vtmn-page-title">Privacy Policy</h1>
       <p className="mt-4 text-sm text-muted-foreground">Updated November 6, 2026</p>
       <div className="mt-10 space-y-8 leading-relaxed">
         <p>

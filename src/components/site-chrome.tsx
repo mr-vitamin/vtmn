@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { site } from "@/data/site";
 import { ExtLinks } from "./ext-links";
 import { Button } from "@/components/ui/button";
 import { BrandSymbol, Wordmark } from "@/components/wordmark";
@@ -74,13 +73,20 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-5 py-8">
         <ExtLinks className="justify-center font-normal" />
         <p className="mt-6 text-center text-xs font-normal text-muted-foreground">
-          © {new Date().getFullYear()} {site.name}
+          © 2026 VTMN. All rights reserved.
           <span aria-hidden="true"> · </span>
           <a
             href="/privacy"
             className="underline underline-offset-4 hover:text-accent-glow focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
           >
-            Privacy
+            Privacy Policy
+          </a>
+          <span aria-hidden="true"> · </span>
+          <a
+            href="/terms"
+            className="underline underline-offset-4 hover:text-accent-glow focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+          >
+            Terms of Use
           </a>
         </p>
       </div>

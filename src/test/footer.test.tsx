@@ -33,7 +33,7 @@ describe("Shared footer destinations", () => {
       "LinkedIn",
       "Email",
     ]);
-    expect(screen.getAllByRole("link")).toHaveLength(5);
+    expect(screen.getAllByRole("link")).toHaveLength(6);
     expect(within(items[2]!).queryByRole("link")).not.toBeInTheDocument();
     expect(items[2]).toHaveAttribute("title", "Link coming soon");
     expect(items[2]).not.toHaveAttribute("tabindex");
@@ -51,10 +51,28 @@ describe("Shared footer destinations", () => {
 
   it("provides a keyboard-accessible privacy notice in the same tab", () => {
     render(<SiteFooter />);
-    const link = screen.getByRole("link", { name: "Privacy" });
+    const link = screen.getByRole("link", { name: "Privacy Policy" });
     expect(link).toHaveAttribute("href", "/privacy");
     expect(link).not.toHaveAttribute("target");
     link.focus();
     expect(link).toHaveFocus();
+  });
+
+  it("keeps copyright and legal links without duplicating GitHub", () => {
+    render(<SiteFooter />);
+    expect(screen.getByText(/© 2026 VTMN\. All rights reserved\./)).toBeInTheDocument();
+    const links = screen
+      .getAllByRole("link")
+      .filter((link) => link.getAttribute("href")?.startsWith("/"));
+    expect(links.map((link) => [link.textContent, link.getAttribute("href")])).toEqual([
+      ["Privacy Policy", "/privacy"],
+      ["Terms of Use", "/terms"],
+    ]);
+    expect(screen.getAllByRole("link", { name: "GitHub" })).toHaveLength(1);
+    for (const link of links) {
+      expect(link).not.toHaveAttribute("target");
+      link.focus();
+      expect(link).toHaveFocus();
+    }
   });
 });

@@ -12,7 +12,8 @@ test("privacy notice is directly accessible, accurate, and reachable from the fo
     assert.equal(response.status, 200);
     const dom = new JSDOM(await response.text());
     const doc = dom.window.document;
-    assert.equal(doc.querySelector("main h1")?.textContent, "Privacy notice");
+    assert.equal(doc.querySelector("main h1")?.textContent, "Privacy Policy");
+    assert.equal(doc.title, "Privacy Policy — VTMN");
     const text = doc.querySelector("main").textContent;
     for (const term of [
       "Utah, USA",
@@ -42,7 +43,7 @@ test("privacy notice is directly accessible, accurate, and reachable from the fo
       );
       assert.equal(
         page.window.document.querySelector('footer a[href="/privacy"]')?.textContent,
-        "Privacy",
+        "Privacy Policy",
         file,
       );
       page.window.close();

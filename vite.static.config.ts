@@ -28,6 +28,7 @@ export default defineConfig({
         { path: "/archive" },
         { path: "/about" },
         { path: "/privacy" },
+        { path: "/terms" },
         ...getProjectPages(),
       ],
     }),

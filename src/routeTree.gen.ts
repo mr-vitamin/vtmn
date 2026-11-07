@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ArchiveRouteImport } from './routes/archive'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ArchiveSlugRouteImport } from './routes/archive_.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -35,6 +36,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ArchiveSlugRoute = ArchiveSlugRouteImport.update({
   id: '/archive_/$slug',
   path: '/archive/$slug',
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/archive': typeof ArchiveRoute
   '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/archive/$slug': typeof ArchiveSlugRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/archive': typeof ArchiveRoute
   '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/archive/$slug': typeof ArchiveSlugRoute
 }
 export interface FileRoutesById {
@@ -61,14 +69,23 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/archive': typeof ArchiveRoute
   '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/archive_/$slug': typeof ArchiveSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/archive' | '/privacy' | '/archive/$slug'
+  fullPaths:
+    '/' | '/about' | '/archive' | '/privacy' | '/terms' | '/archive/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/archive' | '/privacy' | '/archive/$slug'
-  id: '__root__' | '/' | '/about' | '/archive' | '/privacy' | '/archive_/$slug'
+  to: '/' | '/about' | '/archive' | '/privacy' | '/terms' | '/archive/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/archive'
+    | '/privacy'
+    | '/terms'
+    | '/archive_/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +93,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ArchiveRoute: typeof ArchiveRoute
   PrivacyRoute: typeof PrivacyRoute
+  TermsRoute: typeof TermsRoute
   ArchiveSlugRoute: typeof ArchiveSlugRoute
 }
 
@@ -109,6 +127,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/archive_/$slug': {
       id: '/archive_/$slug'
       path: '/archive/$slug'
@@ -124,6 +149,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ArchiveRoute: ArchiveRoute,
   PrivacyRoute: PrivacyRoute,
+  TermsRoute: TermsRoute,
   ArchiveSlugRoute: ArchiveSlugRoute,
 }
 export const routeTree = rootRouteImport
