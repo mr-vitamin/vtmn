@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2026 Alexander Ceran. All Rights Reserved. See BRANDING.md.
+     Website color/presentation derivative of book-2-symbol.svg; polygon geometry unchanged. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-labelledby="emblem-title">
+  <title id="emblem-title">Torn by Fate and Duty emblem</title>
+  <defs>
+    <linearGradient id="emblem-color" gradientUnits="userSpaceOnUse" x1="136.11384" y1="234.82612" x2="913.59301" y2="822.88038">
+      <stop offset="0" stop-color="#faf5ff"/>
+      <stop offset="0.45" stop-color="#d8b4fe"/>
+      <stop offset="0.8" stop-color="#a855f7"/>
+      <stop offset="1" stop-color="#7e22ce"/>
+    </linearGradient>
+    <filter id="emblem-glow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#a855f7" flood-opacity="0.35"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#emblem-glow)">
+    <g transform="translate(96.86862391 -24.83182504) scale(0.4251308374)">
+  <g id="Layer_1" data-name="Layer 1">
+    <polygon points="467.15563,534.02285 414.2418,553.63745 385.04796,594.23513 432.03179,580.09437" fill="url(#emblem-color)" stroke="url(#emblem-color)" stroke-miterlimit="10"/>
+    <polygon points="523.26253,537.21592 593.05405,487.03901 556.56175,540.86515" fill="url(#emblem-color)" stroke="url(#emblem-color)" stroke-miterlimit="10"/>
+    <polygon points="448.90948,443.24826 465.33101,442.33595 478.55947,480.65286" fill="url(#emblem-color)" stroke="url(#emblem-color)" stroke-miterlimit="10"/>
+    <polygon points="477.64716,377.10597 520.98177,340.61368 500.911,443.24826" fill="url(#emblem-color)" stroke="url(#emblem-color)" stroke-miterlimit="10"/>
+    <polygon points="470.8101,725.74754 439.01662,776.06636 415.48443,822.88038 454.03716,780.32218" fill="url(#emblem-color)" stroke="url(#emblem-color)" stroke-miterlimit="10"/>
+    <polygon points="536.65015,620.60374 505.85803,729.75302 557.67891,684.1907" fill="url(#emblem-color)" stroke="url(#emblem-color)" stroke-miterlimit="10"/>
+    <polygon points="562.43541,571.53663 580.20972,614.84586 599.73643,603.07977" fill="url(#emblem-color)" stroke="url(#emblem-color)" stroke-miterlimit="10"/>
+    <polygon points="610.00047,507.69932 643.04566,458.38187 687.10592,435.60072 659.8186,480.412" fill="url(#emblem-color)" stroke="url(#emblem-color)" stroke-miterlimit="10"/>
+    <polygon points="676.09086,234.82612 606.99636,285.39529 570.19603,364.25314" fill="url(#emblem-color)" stroke="url(#emblem-color)" stroke-miterlimit="10"/>
+    <polygon points="473.68794,505.44806 382.88932,470.19442 163.16896,585.5886 136.11384,666.75396 136.11384,682.94604 151.48607,723.11879 219.94372,772.51488 232.2415,772.9248 457.70082,665.31922 507.91676,563.04267 429.41593,624.32661 425.72659,632.32017 240.23505,722.91383 230.19187,723.32375 186.94467,694.42397 180.38585,675.15744 201.90697,612.23379 378.5851,520.00043 387.80843,519.59051 402.9757,526.35429" fill="url(#emblem-color)" stroke="url(#emblem-color)" stroke-miterlimit="10"/>
+    <polygon points="576.01891,531.13137 666.81753,566.38501 886.53789,450.99082 913.59301,369.82547 913.59301,353.63339 898.22078,313.46064 829.76313,264.06455 817.46535,263.65462 592.00602,371.26021 541.79008,473.53676 620.29092,412.25281 623.98025,404.25926 809.47179,313.6656 819.51498,313.25567 862.76218,342.15546 869.32099,361.42198 847.79988,424.34563 671.12175,516.57899 661.89841,516.98892 646.73115,510.22514" fill="url(#emblem-color)" stroke="url(#emblem-color)" stroke-miterlimit="10"/>
+  </g>
+    </g>
+  </g>
+</svg>

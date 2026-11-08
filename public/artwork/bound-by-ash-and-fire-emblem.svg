@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2026 Alexander Ceran. All Rights Reserved. See BRANDING.md.
+     Website color/presentation derivative of book-1-symbol.svg; polygon geometry unchanged. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-labelledby="emblem-title">
+  <title id="emblem-title">Bound by Ash and Fire emblem</title>
+  <defs>
+    <linearGradient id="emblem-color" gradientUnits="userSpaceOnUse" x1="262.01336" y1="91.37024" x2="764.93579" y2="964.90751">
+      <stop offset="0" stop-color="#faf5ff"/>
+      <stop offset="0.45" stop-color="#d8b4fe"/>
+      <stop offset="0.8" stop-color="#a855f7"/>
+      <stop offset="1" stop-color="#7e22ce"/>
+    </linearGradient>
+    <filter id="emblem-glow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#a855f7" flood-opacity="0.35"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#emblem-glow)">
+    <g transform="translate(173.04731903 48.85050325) scale(0.2861927116)">
+  <g id="Layer_1" data-name="Layer 1">
+    <path d="M869.47226 511.55279" fill="url(#emblem-color)" stroke="url(#emblem-color)" stroke-miterlimit="10" stroke-width="1.25" vector-effect="non-scaling-stroke"/>
+    <g>
+      <polygon points="509.06758,964.90751 486.96806,776.9117 465.54381,654.39173 346.37137,488.01898 389.21989,345.74852 271.38647,505.76094 322.26908,612.88223 405.95759,676.82025 449.81037,774.56842 485.29429,872.65135" fill="url(#emblem-color)" stroke="url(#emblem-color)" stroke-miterlimit="10"/>
+      <polygon points="415.66546,782.26776 368.79989,701.25729 321.26482,663.76484 262.01336,580.74584 303.85761,696.57073" fill="url(#emblem-color)" stroke="url(#emblem-color)" stroke-miterlimit="10"/>
+    </g>
+    <g>
+      <polygon points="517.88157,964.90751 539.98109,776.9117 561.40534,654.39173 680.57778,488.01898 637.72926,345.74852 755.56268,505.76094 704.68007,612.88223 620.99156,676.82025 577.13878,774.56842 541.65486,872.65135" fill="url(#emblem-color)" stroke="url(#emblem-color)" stroke-miterlimit="10"/>
+      <polygon points="611.28369,782.26776 658.14926,701.25729 705.68433,663.76484 764.93579,580.74584 723.09154,696.57073" fill="url(#emblem-color)" stroke="url(#emblem-color)" stroke-miterlimit="10"/>
+    </g>
+    <polygon points="593.66641,399.66588 549.7492,494.81984 538.15993,575.33473 587.5668,482.62061" fill="url(#emblem-color)" stroke="url(#emblem-color)" stroke-miterlimit="10"/>
+    <polygon points="469.23431,240.46598 425.92706,316.10118 424.09718,389.9065 455.2052,316.71114" fill="url(#emblem-color)" stroke="url(#emblem-color)" stroke-miterlimit="10"/>
+    <polygon points="512.33868,91.37024 468.8914,343.06479 427.9411,451.43327 498.35565,621.22721 511.33989,729.0963 518.33141,580.27691 518.33141,474.40539 580.75565,354.55085" fill="url(#emblem-color)" stroke="url(#emblem-color)" stroke-miterlimit="10"/>
+  </g>
+    </g>
+  </g>
+</svg>

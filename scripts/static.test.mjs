@@ -61,8 +61,9 @@ test("exported pages, assets, clean URLs, and genuine 404s work without an app s
           assert.equal(
             doc.querySelectorAll('[data-archive-group="upcoming"] [data-project-placeholder]')
               .length,
-            3,
+            0,
           );
+          assert.equal(doc.querySelectorAll('[data-archive-group="upcoming"] img').length, 3);
           assert.equal(doc.querySelectorAll('[data-archive-group="released"] img').length, 3);
           for (const count of doc.querySelectorAll(".vtmn-archive-count"))
             assert.equal(count.textContent, "03");

@@ -42,14 +42,15 @@ describe("Archive exhibition", () => {
     ).toEqual(["Bound by Ash and Fire", "Torn by Fate and Duty", "Wet Paper Magazine Website"]);
   });
 
-  it("shows three released emblems, three upcoming placeholders and dynamic counts", async () => {
+  it("shows all six official emblems while preserving release groups and dynamic counts", async () => {
     await renderWithRouter(<Archive />);
     const released = screen.getByRole("region", { name: "Released" });
     expect(within(released).getAllByRole("article")).toHaveLength(3);
     expect(within(released).getAllByRole("img")).toHaveLength(3);
     expect(released.querySelector("[data-project-placeholder]")).toBeNull();
     const upcoming = screen.getByRole("region", { name: "Upcoming" });
-    expect(upcoming.querySelectorAll("[data-project-placeholder]")).toHaveLength(3);
+    expect(upcoming.querySelector("[data-project-placeholder]")).toBeNull();
+    expect(within(upcoming).getAllByRole("img")).toHaveLength(3);
     for (const section of [upcoming, released]) {
       expect(within(section).getByLabelText("3 projects")).toHaveTextContent("03");
     }

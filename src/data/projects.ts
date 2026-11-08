@@ -47,6 +47,8 @@ export const projects: readonly Project[] = [
     order: 10,
     description: "The first planned novel in The Shrouded Reign epic fantasy series.",
     series: { title: "The Shrouded Reign", order: 1 },
+    image: "/artwork/bound-by-ash-and-fire-emblem.svg",
+    imageAlt: "Bound by Ash and Fire geometric emblem",
     overview: [
       {
         text: "Every world has its history. Its legends, its conflicts, and the truths buried beneath generations of memory. But the most compelling stories often begin when someone discovers that the world they thought they understood is far more complicated than it appears.",
@@ -70,6 +72,8 @@ export const projects: readonly Project[] = [
     order: 20,
     description: "The second planned novel in The Shrouded Reign epic fantasy series.",
     series: { title: "The Shrouded Reign", order: 2 },
+    image: "/artwork/torn-by-fate-and-duty-emblem.svg",
+    imageAlt: "Torn by Fate and Duty geometric emblem",
     overview: [
       {
         text: "A story rarely ends where its first chapter leads us to believe. As characters make their choices and the world around them changes, the consequences can reach far beyond anything they initially imagined.",
@@ -92,6 +96,8 @@ export const projects: readonly Project[] = [
     type: "Website",
     order: 30,
     description: "The dedicated website project for Wet Paper Magazine.",
+    image: "/artwork/wet-paper-magazine-website-emblem.svg",
+    imageAlt: "Wet Paper Magazine geometric paper boat emblem",
     overview: [
       {
         text: "Every piece of writing begins somewhere, but finding a place where those words can be shared, discovered, and appreciated is another journey entirely.",
