@@ -56,9 +56,22 @@ test("exported pages, assets, clean URLs, and genuine 404s work without an app s
         if (route === "/archive") {
           assert.equal(doc.querySelectorAll("article").length, 6);
           assert.deepEqual([...doc.querySelectorAll('main h2')].map((h) => h.textContent), ["Upcoming", "Released"]);
-          assert.equal(doc.querySelectorAll('[data-archive-group="upcoming"] article').length, 6);
-          assert.equal(doc.querySelectorAll('[data-archive-group="released"] article').length, 0);
-          assert.ok(doc.querySelector('[data-archive-group="released"]').textContent.includes("No released projects yet."));
+          assert.equal(doc.querySelectorAll('[data-archive-group="upcoming"] article').length, 3);
+          assert.equal(doc.querySelectorAll('[data-archive-group="released"] article').length, 3);
+          assert.equal(
+            doc.querySelectorAll('[data-archive-group="upcoming"] [data-project-placeholder]')
+              .length,
+            3,
+          );
+          assert.equal(doc.querySelectorAll('[data-archive-group="released"] img').length, 3);
+          for (const count of doc.querySelectorAll(".vtmn-archive-count"))
+            assert.equal(count.textContent, "03");
+          for (const image of doc.querySelectorAll("article img")) {
+            const response = await fetch(new URL(image.getAttribute("src"), base));
+            assert.equal(response.status, 200);
+            assert.match(response.headers.get("content-type"), /image\/svg\+xml/);
+            assert.match(await response.text(), /<polygon/);
+          }
           assert.ok(!doc.querySelector('[aria-label="Filter by category"]'));
           assert.ok(!doc.body.textContent.includes("Sample"));
           assert.equal(doc.querySelectorAll('article [aria-disabled="true"]').length, 0);
@@ -151,8 +164,8 @@ test("all six exhibits are prerendered, refreshable, linked, and accompanied by 
   const server = await startStaticServer({ directory: output, port: 0 });
   const base = `http://127.0.0.1:${server.address().port}`;
   const entries = [
-    ["the-shrouded-reign-book-1", "The Shrouded Reign — Book 1"],
-    ["the-shrouded-reign-book-2", "The Shrouded Reign — Book 2"],
+    ["the-shrouded-reign-book-1", "Bound by Ash and Fire"],
+    ["the-shrouded-reign-book-2", "Torn by Fate and Duty"],
     ["wet-paper-magazine-website", "Wet Paper Magazine Website"],
     ["7-tools-in-7-days", "7 Tools in 7 Days"],
     ["wren-discord-bot", "Wren Discord Bot"],
@@ -187,14 +200,22 @@ test("all six exhibits are prerendered, refreshable, linked, and accompanied by 
           assert.ok(!doc.querySelector("main").textContent.includes("Wet Paper Magazine"));
         }
         assert.ok(doc.querySelector('main a[href="/archive"]'));
-        assert.equal(doc.querySelector(".vtmn-exhibit-status")?.textContent.trim(), "Upcoming");
+        const destination = {
+          "7-tools-in-7-days": "https://github.com/mr-vitamin/7-tools-7-days",
+          "wren-discord-bot": "https://github.com/mr-vitamin/wren-discord-bot",
+          "vtmn-website": "https://vtmnarchive.com/",
+        }[slug];
+        assert.equal(
+          doc.querySelector(".vtmn-exhibit-status")?.textContent.trim(),
+          destination ? "Released" : "Upcoming",
+        );
         assert.ok(!doc.body.textContent.includes("Project page coming soon."));
         const stylesheet = [...doc.querySelectorAll('link[rel="stylesheet"]')].find(link => /\/project-detail-/.test(link.href));
         assert.ok(stylesheet, "Direct visits include the exhibit stylesheet");
         assert.equal((await fetch(new URL(stylesheet.href, base))).status, 200);
         const links = [...doc.querySelectorAll("main a[target='_blank']")];
-        assert.equal(links.length, slug === "7-tools-in-7-days" ? 1 : 0);
-        if (links.length) assert.equal(links[0].href, "https://github.com/mr-vitamin/7-tools-7-days");
+        assert.equal(links.length, destination ? 1 : 0);
+        if (destination) assert.equal(links[0].href, destination);
         dom.window.close();
       }
       const canonical = await fetch(base + route + ".html", { redirect: "manual" });

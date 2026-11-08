@@ -39,21 +39,20 @@ describe("Archive exhibition", () => {
       within(upcoming)
         .getAllByRole("heading", { level: 3 })
         .map((h) => h.textContent),
-    ).toEqual([
-      "The Shrouded Reign — Book 1",
-      "The Shrouded Reign — Book 2",
-      "Wet Paper Magazine Website",
-      "7 Tools in 7 Days",
-      "Wren Discord Bot",
-      "VTMN Website",
-    ]);
+    ).toEqual(["Bound by Ash and Fire", "Torn by Fate and Duty", "Wet Paper Magazine Website"]);
   });
 
-  it("shows an honest Released empty state and omits obsolete filter/series sections", async () => {
+  it("shows three released emblems, three upcoming placeholders and dynamic counts", async () => {
     await renderWithRouter(<Archive />);
     const released = screen.getByRole("region", { name: "Released" });
-    expect(within(released).queryByRole("article")).not.toBeInTheDocument();
-    expect(within(released).getByText("No released projects yet.")).toBeInTheDocument();
+    expect(within(released).getAllByRole("article")).toHaveLength(3);
+    expect(within(released).getAllByRole("img")).toHaveLength(3);
+    expect(released.querySelector("[data-project-placeholder]")).toBeNull();
+    const upcoming = screen.getByRole("region", { name: "Upcoming" });
+    expect(upcoming.querySelectorAll("[data-project-placeholder]")).toHaveLength(3);
+    for (const section of [upcoming, released]) {
+      expect(within(section).getByLabelText("3 projects")).toHaveTextContent("03");
+    }
     expect(screen.queryByRole("group", { name: "Filter by category" })).not.toBeInTheDocument();
     expect(
       screen.queryByRole("heading", { name: /Series|In Development/ }),

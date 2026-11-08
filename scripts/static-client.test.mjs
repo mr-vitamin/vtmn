@@ -193,13 +193,16 @@ test(
       action.focus();
       assert.equal(doc.activeElement, action);
       click(window, action);
-      await waitFor(() => doc.querySelector('main h1')?.textContent === 'The Shrouded Reign — Book 1', 'card navigation to exhibit');
+      await waitFor(
+        () => doc.querySelector("main h1")?.textContent === "Bound by Ash and Fire",
+        "card navigation to exhibit",
+      );
       assert.equal(window.location.pathname, '/archive/the-shrouded-reign-book-1');
       assert.ok(doc.querySelector('[data-project-exhibit]'));
       click(window, [...doc.querySelectorAll('main a')].find(a => a.textContent.includes('Back to The Archive')));
       await waitFor(() => doc.querySelectorAll('article').length === 6, 'return to Archive');
       assert.equal(doc.querySelectorAll('article').length, 6);
-      assert.ok(doc.querySelector('[data-archive-group="released"]').textContent.includes('No released projects yet.'));
+      assert.equal(doc.querySelectorAll('[data-archive-group="released"] article').length, 3);
       click(window, doc.querySelector('nav[aria-label="Main"] a[href="/about"]'));
       await waitFor(() => doc.title.startsWith("About "), "client navigation to About");
       assert.equal(window.location.pathname, "/about");
@@ -282,7 +285,10 @@ test("all six static project exhibits hydrate without a server and keep their re
         assert.ok(!doc.querySelector('[aria-label="VTMN entrance"]'));
         assert.ok(!page.requests.some(url => url.startsWith('/_server')));
         const links = [...doc.querySelectorAll('main a[target="_blank"]')];
-        assert.equal(links.length, slug === '7-tools-in-7-days' ? 1 : 0);
+        assert.equal(
+          links.length,
+          ["7-tools-in-7-days", "wren-discord-bot", "vtmn-website"].includes(slug) ? 1 : 0,
+        );
         const back = [...doc.querySelectorAll('main a')].find(a => a.textContent.includes('Back to The Archive'));
         click(page.dom.window, back);
         await waitFor(() => doc.querySelectorAll('article[data-project-id]').length === 6, 'exhibit return navigation');

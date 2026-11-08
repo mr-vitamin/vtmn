@@ -42,15 +42,16 @@ describe("Archive catalog", () => {
     }
   });
 
-  it("does not label the six unverified releases as Released", () => {
-    expect(getArchiveGroups().released).toEqual([]);
+  it("separates the three owner-confirmed releases from the three upcoming projects", () => {
+    expect(getArchiveGroups().released.map((p) => p.id)).toEqual([
+      "7-tools-7-days",
+      "wren-discord-bot",
+      "vtmn-website",
+    ]);
     expect(getArchiveGroups().upcoming.map((p) => p.id)).toEqual([
       "shrouded-reign-book-1",
       "shrouded-reign-book-2",
       "wet-paper-website",
-      "7-tools-7-days",
-      "wren-discord-bot",
-      "vtmn-website",
     ]);
   });
 

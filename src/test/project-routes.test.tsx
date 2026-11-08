@@ -19,8 +19,8 @@ async function visit(path: string) {
 
 describe("Project exhibit routes", () => {
   it.each([
-    ["the-shrouded-reign-book-1", "The Shrouded Reign — Book 1"],
-    ["the-shrouded-reign-book-2", "The Shrouded Reign — Book 2"],
+    ["the-shrouded-reign-book-1", "Bound by Ash and Fire"],
+    ["the-shrouded-reign-book-2", "Torn by Fate and Duty"],
     ["wet-paper-magazine-website", "Wet Paper Magazine Website"],
     ["7-tools-in-7-days", "7 Tools in 7 Days"],
     ["wren-discord-bot", "Wren Discord Bot"],
@@ -35,7 +35,10 @@ describe("Project exhibit routes", () => {
     expect(identity.children[0]).toHaveClass("vtmn-exhibit-metadata");
     expect(identity.querySelector("p")).toBeNull();
     expect(hero.children[1]).toHaveClass("vtmn-exhibit-artwork");
-    expect(within(main).getByText("Upcoming")).toBeInTheDocument();
+    const status = ["7-tools-in-7-days", "wren-discord-bot", "vtmn-website"].includes(slug)
+      ? "Released"
+      : "Upcoming";
+    expect(within(main).getByText(status)).toBeInTheDocument();
     expect(within(main).getByRole("heading", { name: "Overview" })).toBeInTheDocument();
     const expected = approvedOverviews[slug as keyof typeof approvedOverviews];
     const paragraphs = [...main.querySelectorAll(".vtmn-exhibit-copy > p")];

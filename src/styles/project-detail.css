@@ -99,6 +99,12 @@
   border-right: 1px solid var(--primary);
 }
 
+.vtmn-exhibit[data-project-exhibit="wren-discord-bot"] .vtmn-exhibit-artwork::after,
+.vtmn-exhibit[data-project-exhibit="7-tools-7-days"] .vtmn-exhibit-artwork::after,
+.vtmn-exhibit[data-project-exhibit="vtmn-website"] .vtmn-exhibit-artwork::after {
+  border-right-color: transparent;
+}
+
 .vtmn-exhibit-artwork > img,
 .vtmn-exhibit-artwork > svg {
   display: block;

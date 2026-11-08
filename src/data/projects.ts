@@ -1,5 +1,5 @@
-// One catalog for the Archive and its future detail pages. Release evidence is
-// recorded in docs/archive-stage-1.md; public source alone does not mean complete.
+// Shared Archive/detail catalog. Release statuses were confirmed by the owner
+// in the November 7, 2026 artwork and release update.
 export const CATEGORIES = [
   "Cybersecurity",
   "Software",
@@ -40,7 +40,7 @@ export const projects: readonly Project[] = [
   {
     id: "shrouded-reign-book-1",
     slug: "the-shrouded-reign-book-1",
-    name: "The Shrouded Reign — Book 1",
+    name: "Bound by Ash and Fire",
     category: "Literature",
     status: "upcoming",
     type: "Novel",
@@ -63,7 +63,7 @@ export const projects: readonly Project[] = [
   {
     id: "shrouded-reign-book-2",
     slug: "the-shrouded-reign-book-2",
-    name: "The Shrouded Reign — Book 2",
+    name: "Torn by Fate and Duty",
     category: "Literature",
     status: "upcoming",
     type: "Novel",
@@ -109,10 +109,13 @@ export const projects: readonly Project[] = [
     slug: "7-tools-in-7-days",
     name: "7 Tools in 7 Days",
     category: "Cybersecurity",
-    status: "upcoming",
+    status: "released",
     type: "Technical project",
     order: 40,
-    description: "Documenting practical exploration of cybersecurity tools.",
+    description:
+      "Seven hands-on cybersecurity investigations, with commands, evidence, findings, and lessons learned from an authorized lab.",
+    image: "/artwork/seven-tools-seven-days-emblem.svg",
+    imageAlt: "7 Tools in 7 Days geometric seven emblem",
     overview: [
       {
         text: "Cybersecurity is a field where understanding comes from more than simply knowing how a tool works. It comes from experimenting, asking questions, and discovering what happens when theory meets practice.",
@@ -132,10 +135,13 @@ export const projects: readonly Project[] = [
     slug: "wren-discord-bot",
     name: "Wren Discord Bot",
     category: "Software",
-    status: "upcoming",
+    status: "released",
     type: "Discord bot",
     order: 50,
-    description: "A Discord bot project associated with Wet Paper Magazine.",
+    description:
+      "A Discord bot for community quotes, editorial submission tracking, and issue participation.",
+    image: "/artwork/wren-discord-bot-emblem.svg",
+    imageAlt: "Wren geometric bird emblem",
     overview: [
       {
         text: "Writing communities are built around shared stories, creative collaboration, and the people who bring them to life. But behind those communities are countless small responsibilities that can draw attention away from the writing itself.",
@@ -147,16 +153,20 @@ export const projects: readonly Project[] = [
         text: "Rather than attempting to become another all-purpose Discord bot, Wren is intended to provide practical tools tailored to the needs of communities centered around writing and creative collaboration.",
       },
     ],
+    links: [{ label: "View on GitHub", href: "https://github.com/mr-vitamin/wren-discord-bot" }],
   },
   {
     id: "vtmn-website",
     slug: "vtmn-website",
     name: "VTMN Website",
     category: "Website",
-    status: "upcoming",
+    status: "released",
     type: "Personal portfolio website",
     order: 60,
-    description: "Alexander Ceran's personal website and archive of creative and technical work.",
+    description:
+      "A personal website and archive bringing creative writing, software, and cybersecurity projects together under VTMN.",
+    image: "/artwork/vtmn-website-emblem.svg",
+    imageAlt: "VTMN geometric symbol",
     overview: [
       {
         text: "Not every idea begins with a clear destination. Some grow into larger projects, others take unexpected turns, and a few become something entirely different from what was first imagined.",
@@ -168,6 +178,7 @@ export const projects: readonly Project[] = [
         text: "More than a conventional portfolio, the website is intended to become a permanent record of that work: a collection of what has been created, what is still taking shape, and what may come next.",
       },
     ],
+    links: [{ label: "Visit website", href: "https://vtmnarchive.com" }],
   },
 ];
 
